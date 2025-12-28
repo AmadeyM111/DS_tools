@@ -1,444 +1,0 @@
-2025-12-28 19:23:50,323 - __main__ - INFO - ============================================================
-2025-12-28 19:23:50,323 - __main__ - INFO - Запуск процесса настройки Great Expectations
-2025-12-28 19:23:50,323 - __main__ - INFO - ============================================================
-2025-12-28 19:23:50,323 - __main__ - INFO - Конфигурация загружена: {'raw_data_path': '/Users/antonamadeus/github-projects/Active/Data_Invariants', 'clean_data_path': '/Users/antonamadeus/github-projects/Active/data/processed', 'data_source_name': 'my_local_datasource', 'asset_name': 'legal_json_asset', 'batch_definition_name': 'whole_file', 'file_pattern': '**/*.json'}
-2025-12-28 19:23:50,323 - __main__ - INFO - Директория raw_data найдена: /Users/antonamadeus/github-projects/Active/Data_Invariants
-2025-12-28 19:23:50,323 - __main__ - INFO - Инициализация контекста Great Expectations...
-2025-12-28 19:23:50,324 - great_expectations.data_context.data_context.context_factory - INFO - Could not find local file-backed GX project
-2025-12-28 19:23:50,324 - great_expectations.data_context.types.base - INFO - Created temporary directory '/var/folders/dd/k0_x8pxx3014_y7tqpx4w7gr0000gn/T/tmpzy3yu6b0' for ephemeral docs site
-2025-12-28 19:23:50,324 - great_expectations.datasource.fluent.config - INFO - Loading 'datasources' ->
-[]
-2025-12-28 19:23:50,326 - __main__ - INFO - Контекст успешно инициализирован
-2025-12-28 19:23:50,326 - __main__ - INFO - Создание источника данных: my_local_datasource
-2025-12-28 19:23:50,329 - __main__ - INFO - Источник данных 'my_local_datasource' успешно создан
-2025-12-28 19:23:50,329 - __main__ - INFO - Создание Data Asset: legal_json_asset
-2025-12-28 19:23:50,329 - __main__ - INFO - Использование паттерна файлов: **/*.json
-2025-12-28 19:23:50,329 - great_expectations.datasource.fluent.sources - INFO - 'my_local_datasource' PandasFilesystemDatasource uses FilesystemDataConnector
-2025-12-28 19:23:50,329 - great_expectations.datasource.fluent.sources - INFO - FilesystemDataConnector connect_options provided -> ['glob_directive']
-2025-12-28 19:23:50,330 - __main__ - ERROR - Ошибка при настройке Great Expectations: No file at base_directory path "/Users/antonamadeus/github-projects/Active/Data_Invariants" matched glob_directive "**/*.json" for DataAsset "legal_json_asset".
-Traceback (most recent call last):
-  File "/Users/antonamadeus/github-projects/Active/Data_Invariants/setup_ge.py", line 124, in setup_great_expectations
-    data_asset = data_source.add_json_asset(
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/antonamadeus/github-projects/Active/legal_nlp/.venv/lib/python3.11/site-packages/great_expectations/datasource/fluent/sources.py", line 306, in _add_asset_factory
-    return self._add_asset(asset, connect_options=connect_options)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/antonamadeus/github-projects/Active/legal_nlp/.venv/lib/python3.11/site-packages/great_expectations/datasource/fluent/pandas_datasource.py", line 616, in _add_asset
-    return super()._add_asset(asset=asset, connect_options=connect_options)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/antonamadeus/github-projects/Active/legal_nlp/.venv/lib/python3.11/site-packages/great_expectations/datasource/fluent/interfaces.py", line 882, in _add_asset
-    asset.test_connection()
-  File "/Users/antonamadeus/github-projects/Active/legal_nlp/.venv/lib/python3.11/site-packages/great_expectations/datasource/fluent/data_asset/path/path_data_asset.py", line 203, in test_connection
-    raise TestConnectionError(self._test_connection_error_message)
-great_expectations.datasource.fluent.interfaces.TestConnectionError: No file at base_directory path "/Users/antonamadeus/github-projects/Active/Data_Invariants" matched glob_directive "**/*.json" for DataAsset "legal_json_asset".
-2025-12-28 19:23:50,331 - __main__ - ERROR - Критическая ошибка: No file at base_directory path "/Users/antonamadeus/github-projects/Active/Data_Invariants" matched glob_directive "**/*.json" for DataAsset "legal_json_asset".
-Traceback (most recent call last):
-  File "/Users/antonamadeus/github-projects/Active/Data_Invariants/setup_ge.py", line 317, in main
-    context, data_source, data_asset, batch_definition = setup_great_expectations(config)
-                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/antonamadeus/github-projects/Active/Data_Invariants/setup_ge.py", line 124, in setup_great_expectations
-    data_asset = data_source.add_json_asset(
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/antonamadeus/github-projects/Active/legal_nlp/.venv/lib/python3.11/site-packages/great_expectations/datasource/fluent/sources.py", line 306, in _add_asset_factory
-    return self._add_asset(asset, connect_options=connect_options)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/antonamadeus/github-projects/Active/legal_nlp/.venv/lib/python3.11/site-packages/great_expectations/datasource/fluent/pandas_datasource.py", line 616, in _add_asset
-    return super()._add_asset(asset=asset, connect_options=connect_options)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/antonamadeus/github-projects/Active/legal_nlp/.venv/lib/python3.11/site-packages/great_expectations/datasource/fluent/interfaces.py", line 882, in _add_asset
-    asset.test_connection()
-  File "/Users/antonamadeus/github-projects/Active/legal_nlp/.venv/lib/python3.11/site-packages/great_expectations/datasource/fluent/data_asset/path/path_data_asset.py", line 203, in test_connection
-    raise TestConnectionError(self._test_connection_error_message)
-great_expectations.datasource.fluent.interfaces.TestConnectionError: No file at base_directory path "/Users/antonamadeus/github-projects/Active/Data_Invariants" matched glob_directive "**/*.json" for DataAsset "legal_json_asset".
-Traceback (most recent call last):
-  File "/Users/antonamadeus/github-projects/Active/Data_Invariants/setup_ge.py", line 354, in <module>
-    main()
-  File "/Users/antonamadeus/github-projects/Active/Data_Invariants/setup_ge.py", line 317, in main
-    context, data_source, data_asset, batch_definition = setup_great_expectations(config)
-                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/antonamadeus/github-projects/Active/Data_Invariants/setup_ge.py", line 124, in setup_great_expectations
-    data_asset = data_source.add_json_asset(
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/antonamadeus/github-projects/Active/legal_nlp/.venv/lib/python3.11/site-packages/great_expectations/datasource/fluent/sources.py", line 306, in _add_asset_factory
-    return self._add_asset(asset, connect_options=connect_options)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/antonamadeus/github-projects/Active/legal_nlp/.venv/lib/python3.11/site-packages/great_expectations/datasource/fluent/pandas_datasource.py", line 616, in _add_asset
-    return super()._add_asset(asset=asset, connect_options=connect_options)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/antonamadeus/github-projects/Active/legal_nlp/.venv/lib/python3.11/site-packages/great_expectations/datasource/fluent/interfaces.py", line 882, in _add_asset
-    asset.test_connection()
-  File "/Users/antonamadeus/github-projects/Active/legal_nlp/.venv/lib/python3.11/site-packages/great_expectations/datasource/fluent/data_asset/path/path_data_asset.py", line 203, in test_connection
-    raise TestConnectionError(self._test_connection_error_message)
-great_expectations.datasource.fluent.interfaces.TestConnectionError: No file at base_directory path "/Users/antonamadeus/github-projects/Active/Data_Invariants" matched glob_directive "**/*.json" for DataAsset "legal_json_asset".
-2025-12-28 19:59:02,051 - __main__ - INFO - ============================================================
-2025-12-28 19:59:02,051 - __main__ - INFO - Запуск процесса настройки Great Expectations
-2025-12-28 19:59:02,051 - __main__ - INFO - ============================================================
-2025-12-28 19:59:02,051 - __main__ - INFO - PROJECT_ROOT: /Users/antonamadeus/github-projects/Active/experimental/Data_Invariants
-2025-12-28 19:59:02,051 - __main__ - INFO - PROJECT_ROOT.parent: /Users/antonamadeus/github-projects/Active/experimental
-2025-12-28 19:59:02,051 - __main__ - INFO - Вычисленный путь к raw данным (до resolve): /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 19:59:02,051 - __main__ - INFO - Вычисленный путь к processed данным (до resolve): /Users/antonamadeus/github-projects/Active/experimental/data/processed
-2025-12-28 19:59:02,051 - __main__ - INFO - Вычисленный путь к raw данным (после resolve): /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 19:59:02,052 - __main__ - INFO - Вычисленный путь к processed данным (после resolve): /Users/antonamadeus/github-projects/Active/experimental/data/processed
-2025-12-28 19:59:02,052 - __main__ - INFO - Используется путь по умолчанию: /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 19:59:02,052 - __main__ - INFO - Используется путь к processed данным по умолчанию: /Users/antonamadeus/github-projects/Active/experimental/data/processed
-2025-12-28 19:59:02,052 - __main__ - INFO - Конфигурация загружена: {'raw_data_path': '/Users/antonamadeus/github-projects/Active/experimental/data/raw', 'clean_data_path': '/Users/antonamadeus/github-projects/Active/experimental/data/processed', 'data_source_name': 'my_local_datasource', 'asset_name': 'legal_json_asset', 'batch_definition_name': 'whole_file', 'file_pattern': '**/*.json'}
-2025-12-28 19:59:02,052 - __main__ - INFO - Директория raw_data найдена: /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 19:59:02,052 - __main__ - INFO - Найдено 5 файл(ов) по паттерну '**/*.json'
-2025-12-28 19:59:02,052 - __main__ - INFO - Инициализация контекста Great Expectations...
-2025-12-28 19:59:02,053 - great_expectations.data_context.data_context.context_factory - INFO - Could not find local file-backed GX project
-2025-12-28 19:59:02,054 - great_expectations.data_context.types.base - INFO - Created temporary directory '/var/folders/dd/k0_x8pxx3014_y7tqpx4w7gr0000gn/T/tmptqzxe8ez' for ephemeral docs site
-2025-12-28 19:59:02,054 - great_expectations.datasource.fluent.config - INFO - Loading 'datasources' ->
-[]
-2025-12-28 19:59:02,056 - __main__ - INFO - Контекст успешно инициализирован
-2025-12-28 19:59:02,056 - __main__ - INFO - Создание источника данных: my_local_datasource
-2025-12-28 19:59:02,059 - __main__ - INFO - Источник данных 'my_local_datasource' успешно создан
-2025-12-28 19:59:02,059 - __main__ - INFO - Создание Data Asset: legal_json_asset
-2025-12-28 19:59:02,059 - __main__ - INFO - Использование паттерна файлов: **/*.json
-2025-12-28 19:59:02,059 - great_expectations.datasource.fluent.sources - INFO - 'my_local_datasource' PandasFilesystemDatasource uses FilesystemDataConnector
-2025-12-28 19:59:02,059 - great_expectations.datasource.fluent.sources - INFO - FilesystemDataConnector connect_options provided -> ['glob_directive']
-2025-12-28 19:59:02,061 - __main__ - INFO - Data Asset 'legal_json_asset' успешно создан с паттерном '**/*.json'
-2025-12-28 19:59:02,061 - __main__ - INFO - Создание Batch Definition: whole_file
-2025-12-28 19:59:02,061 - __main__ - ERROR - Ошибка при настройке Great Expectations: 'JSONAsset' object has no attribute 'add_batch_definition_whole_file'
-Traceback (most recent call last):
-  File "/Users/antonamadeus/github-projects/Active/experimental/Data_Invariants/setup_ge.py", line 224, in setup_great_expectations
-    batch_definition = data_asset.add_batch_definition_whole_file(
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'JSONAsset' object has no attribute 'add_batch_definition_whole_file'
-2025-12-28 19:59:02,062 - __main__ - ERROR - Критическая ошибка: 'JSONAsset' object has no attribute 'add_batch_definition_whole_file'
-Traceback (most recent call last):
-  File "/Users/antonamadeus/github-projects/Active/experimental/Data_Invariants/setup_ge.py", line 396, in main
-    context, data_source, data_asset, batch_definition = setup_great_expectations(config)
-                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/antonamadeus/github-projects/Active/experimental/Data_Invariants/setup_ge.py", line 224, in setup_great_expectations
-    batch_definition = data_asset.add_batch_definition_whole_file(
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'JSONAsset' object has no attribute 'add_batch_definition_whole_file'
-Traceback (most recent call last):
-  File "/Users/antonamadeus/github-projects/Active/experimental/Data_Invariants/setup_ge.py", line 433, in <module>
-    main()
-  File "/Users/antonamadeus/github-projects/Active/experimental/Data_Invariants/setup_ge.py", line 396, in main
-    context, data_source, data_asset, batch_definition = setup_great_expectations(config)
-                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/antonamadeus/github-projects/Active/experimental/Data_Invariants/setup_ge.py", line 224, in setup_great_expectations
-    batch_definition = data_asset.add_batch_definition_whole_file(
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'JSONAsset' object has no attribute 'add_batch_definition_whole_file'. Did you mean: 'add_batch_definition_daily'?
-2025-12-28 20:46:06,409 - __main__ - INFO - ============================================================
-2025-12-28 20:46:06,409 - __main__ - INFO - Запуск процесса настройки Great Expectations
-2025-12-28 20:46:06,409 - __main__ - INFO - ============================================================
-2025-12-28 20:46:06,409 - __main__ - INFO - PROJECT_ROOT: /Users/antonamadeus/github-projects/Active/experimental/Data_Invariants
-2025-12-28 20:46:06,409 - __main__ - INFO - PROJECT_ROOT.parent: /Users/antonamadeus/github-projects/Active/experimental
-2025-12-28 20:46:06,409 - __main__ - INFO - Вычисленный путь к raw данным (до resolve): /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 20:46:06,409 - __main__ - INFO - Вычисленный путь к processed данным (до resolve): /Users/antonamadeus/github-projects/Active/experimental/data/processed
-2025-12-28 20:46:06,409 - __main__ - INFO - Вычисленный путь к raw данным (после resolve): /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 20:46:06,409 - __main__ - INFO - Вычисленный путь к processed данным (после resolve): /Users/antonamadeus/github-projects/Active/experimental/data/processed
-2025-12-28 20:46:06,409 - __main__ - INFO - Используется путь по умолчанию: /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 20:46:06,409 - __main__ - INFO - Используется путь к processed данным по умолчанию: /Users/antonamadeus/github-projects/Active/experimental/data/processed
-2025-12-28 20:46:06,409 - __main__ - INFO - Конфигурация загружена: {'raw_data_path': '/Users/antonamadeus/github-projects/Active/experimental/data/raw', 'clean_data_path': '/Users/antonamadeus/github-projects/Active/experimental/data/processed', 'data_source_name': 'my_local_datasource', 'asset_name': 'legal_json_asset', 'batch_definition_name': 'whole_file', 'file_pattern': '**/*.json'}
-2025-12-28 20:46:06,409 - __main__ - INFO - Директория raw_data найдена: /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 20:46:06,410 - __main__ - INFO - Найдено 5 файл(ов) по паттерну '**/*.json'
-2025-12-28 20:46:06,410 - __main__ - INFO - Инициализация контекста Great Expectations...
-2025-12-28 20:46:06,410 - great_expectations.data_context.data_context.context_factory - INFO - Could not find local file-backed GX project
-2025-12-28 20:46:06,411 - great_expectations.data_context.types.base - INFO - Created temporary directory '/var/folders/dd/k0_x8pxx3014_y7tqpx4w7gr0000gn/T/tmppp5s0r3v' for ephemeral docs site
-2025-12-28 20:46:06,411 - great_expectations.datasource.fluent.config - INFO - Loading 'datasources' ->
-[]
-2025-12-28 20:46:06,414 - __main__ - INFO - Контекст успешно инициализирован
-2025-12-28 20:46:06,414 - __main__ - INFO - Создание источника данных: my_local_datasource
-2025-12-28 20:46:06,417 - __main__ - INFO - Источник данных 'my_local_datasource' успешно создан
-2025-12-28 20:46:06,417 - __main__ - INFO - Создание Data Asset: legal_json_asset
-2025-12-28 20:46:06,417 - __main__ - INFO - Использование паттерна файлов: **/*.json
-2025-12-28 20:46:06,417 - great_expectations.datasource.fluent.sources - INFO - 'my_local_datasource' PandasFilesystemDatasource uses FilesystemDataConnector
-2025-12-28 20:46:06,417 - great_expectations.datasource.fluent.sources - INFO - FilesystemDataConnector connect_options provided -> ['glob_directive']
-2025-12-28 20:46:06,419 - __main__ - INFO - Data Asset 'legal_json_asset' успешно создан с паттерном '**/*.json'
-2025-12-28 20:46:06,419 - __main__ - INFO - Создание Batch Definition: whole_file
-2025-12-28 20:46:06,419 - __main__ - INFO - Batch Definition создается автоматически при использовании asset
-2025-12-28 20:46:06,419 - __main__ - INFO - Batch request успешно создан: datasource_name='my_local_datasource' data_asset_name='legal_json_asset' options={} partitioner=None
-2025-12-28 20:46:06,419 - __main__ - INFO - Создание Expectation Suite...
-2025-12-28 20:46:06,419 - __main__ - INFO - Создан новый Expectation Suite: legal_json_asset_suite
-2025-12-28 20:46:06,419 - __main__ - INFO - Получение валидатора для создания expectations...
-2025-12-28 20:46:06,420 - great_expectations.datasource.fluent.data_connector.batch_filter - INFO - batch_slice: None was parsed to: slice(0, None, None)
-2025-12-28 20:46:06,420 - great_expectations.datasource.fluent.data_connector.batch_filter - INFO - batch_slice: slice(0, None, None) was parsed to: slice(0, None, None)
-2025-12-28 20:46:06,435 - __main__ - INFO - Добавление expectations...
-/Users/antonamadeus/github-projects/Active/legal_nlp/.venv/lib/python3.11/site-packages/great_expectations/expectations/expectation.py:1633: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
-  warnings.warn(
-Calculating Metrics:   0%|          | 0/1 [00:00<?, ?it/s]Calculating Metrics:   0%|          | 0/1 [00:00<?, ?it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 1808.67it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 1582.76it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 1499.57it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 1342.18it/s]
-2025-12-28 20:46:06,458 - __main__ - INFO - ✓ Expectation добавлена: таблица не пустая
-2025-12-28 20:46:06,458 - great_expectations.validator.validator - INFO - 	1 expectation(s) included in expectation_suite.
-2025-12-28 20:46:06,458 - __main__ - ERROR - Ошибка при создании expectations: Cannot add ExpectationSuite with name legal_json_asset_suite because it already exists.
-Traceback (most recent call last):
-  File "/Users/antonamadeus/github-projects/Active/experimental/Data_Invariants/setup_ge.py", line 331, in create_expectations
-    validator.save_expectation_suite()
-  File "/Users/antonamadeus/github-projects/Active/legal_nlp/.venv/lib/python3.11/site-packages/great_expectations/validator/validator.py", line 1071, in save_expectation_suite
-    self._data_context.suites.add(expectation_suite)
-  File "/Users/antonamadeus/github-projects/Active/legal_nlp/.venv/lib/python3.11/site-packages/great_expectations/core/factory/suite_factory.py", line 43, in add
-    raise DataContextError(  # noqa: TRY003 # FIXME CoP
-great_expectations.exceptions.exceptions.DataContextError: Cannot add ExpectationSuite with name legal_json_asset_suite because it already exists.
-2025-12-28 20:46:06,460 - __main__ - WARNING - Expectations не были созданы, валидация пропущена
-2025-12-28 20:47:42,098 - __main__ - INFO - ============================================================
-2025-12-28 20:47:42,098 - __main__ - INFO - Запуск процесса настройки Great Expectations
-2025-12-28 20:47:42,098 - __main__ - INFO - ============================================================
-2025-12-28 20:47:42,098 - __main__ - INFO - PROJECT_ROOT: /Users/antonamadeus/github-projects/Active/experimental/Data_Invariants
-2025-12-28 20:47:42,098 - __main__ - INFO - PROJECT_ROOT.parent: /Users/antonamadeus/github-projects/Active/experimental
-2025-12-28 20:47:42,098 - __main__ - INFO - Вычисленный путь к raw данным (до resolve): /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 20:47:42,098 - __main__ - INFO - Вычисленный путь к processed данным (до resolve): /Users/antonamadeus/github-projects/Active/experimental/data/processed
-2025-12-28 20:47:42,098 - __main__ - INFO - Вычисленный путь к raw данным (после resolve): /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 20:47:42,099 - __main__ - INFO - Вычисленный путь к processed данным (после resolve): /Users/antonamadeus/github-projects/Active/experimental/data/processed
-2025-12-28 20:47:42,099 - __main__ - INFO - Используется путь по умолчанию: /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 20:47:42,099 - __main__ - INFO - Используется путь к processed данным по умолчанию: /Users/antonamadeus/github-projects/Active/experimental/data/processed
-2025-12-28 20:47:42,099 - __main__ - INFO - Конфигурация загружена: {'raw_data_path': '/Users/antonamadeus/github-projects/Active/experimental/data/raw', 'clean_data_path': '/Users/antonamadeus/github-projects/Active/experimental/data/processed', 'data_source_name': 'my_local_datasource', 'asset_name': 'legal_json_asset', 'batch_definition_name': 'whole_file', 'file_pattern': '**/*.json'}
-2025-12-28 20:47:42,099 - __main__ - INFO - Директория raw_data найдена: /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 20:47:42,099 - __main__ - INFO - Найдено 5 файл(ов) по паттерну '**/*.json'
-2025-12-28 20:47:42,100 - __main__ - INFO - Инициализация контекста Great Expectations...
-2025-12-28 20:47:42,101 - great_expectations.data_context.data_context.context_factory - INFO - Could not find local file-backed GX project
-2025-12-28 20:47:42,102 - great_expectations.data_context.types.base - INFO - Created temporary directory '/var/folders/dd/k0_x8pxx3014_y7tqpx4w7gr0000gn/T/tmp294zn17e' for ephemeral docs site
-2025-12-28 20:47:42,102 - great_expectations.datasource.fluent.config - INFO - Loading 'datasources' ->
-[]
-2025-12-28 20:47:42,104 - __main__ - INFO - Контекст успешно инициализирован
-2025-12-28 20:47:42,104 - __main__ - INFO - Создание источника данных: my_local_datasource
-2025-12-28 20:47:42,107 - __main__ - INFO - Источник данных 'my_local_datasource' успешно создан
-2025-12-28 20:47:42,107 - __main__ - INFO - Создание Data Asset: legal_json_asset
-2025-12-28 20:47:42,107 - __main__ - INFO - Использование паттерна файлов: **/*.json
-2025-12-28 20:47:42,107 - great_expectations.datasource.fluent.sources - INFO - 'my_local_datasource' PandasFilesystemDatasource uses FilesystemDataConnector
-2025-12-28 20:47:42,107 - great_expectations.datasource.fluent.sources - INFO - FilesystemDataConnector connect_options provided -> ['glob_directive']
-2025-12-28 20:47:42,109 - __main__ - INFO - Data Asset 'legal_json_asset' успешно создан с паттерном '**/*.json'
-2025-12-28 20:47:42,109 - __main__ - INFO - Создание Batch Definition: whole_file
-2025-12-28 20:47:42,109 - __main__ - INFO - Batch Definition создается автоматически при использовании asset
-2025-12-28 20:47:42,109 - __main__ - INFO - Batch request успешно создан: datasource_name='my_local_datasource' data_asset_name='legal_json_asset' options={} partitioner=None
-2025-12-28 20:47:42,109 - __main__ - INFO - Создание Expectation Suite...
-2025-12-28 20:47:42,109 - __main__ - INFO - Создан новый Expectation Suite: legal_json_asset_suite
-2025-12-28 20:47:42,109 - __main__ - INFO - Получение валидатора для создания expectations...
-2025-12-28 20:47:42,110 - great_expectations.datasource.fluent.data_connector.batch_filter - INFO - batch_slice: None was parsed to: slice(0, None, None)
-2025-12-28 20:47:42,110 - great_expectations.datasource.fluent.data_connector.batch_filter - INFO - batch_slice: slice(0, None, None) was parsed to: slice(0, None, None)
-2025-12-28 20:47:42,130 - __main__ - INFO - Добавление expectations...
-/Users/antonamadeus/github-projects/Active/legal_nlp/.venv/lib/python3.11/site-packages/great_expectations/expectations/expectation.py:1633: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
-  warnings.warn(
-Calculating Metrics:   0%|          | 0/1 [00:00<?, ?it/s]Calculating Metrics:   0%|          | 0/1 [00:00<?, ?it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 2543.54it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 2061.08it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 1834.78it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 1680.41it/s]
-2025-12-28 20:47:42,148 - __main__ - INFO - ✓ Expectation добавлена: таблица не пустая
-2025-12-28 20:47:42,148 - great_expectations.validator.validator - INFO - 	1 expectation(s) included in expectation_suite.
-2025-12-28 20:47:42,148 - __main__ - INFO - Expectation Suite 'legal_json_asset_suite' уже существует, обновление выполнено через validator
-2025-12-28 20:47:42,149 - __main__ - INFO - Запуск валидации данных...
-2025-12-28 20:47:42,149 - __main__ - ERROR - Ошибка при валидации данных: Checkpoint with name legal_json_asset_checkpoint was not found.
-Traceback (most recent call last):
-  File "/Users/antonamadeus/github-projects/Active/experimental/Data_Invariants/setup_ge.py", line 413, in validate_data
-    checkpoint = context.checkpoints.get(checkpoint_name)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/antonamadeus/github-projects/Active/legal_nlp/.venv/lib/python3.11/site-packages/great_expectations/core/factory/checkpoint_factory.py", line 87, in get
-    raise DataContextError(f"Checkpoint with name {name} was not found.")  # noqa: TRY003 # FIXME CoP
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-great_expectations.exceptions.exceptions.DataContextError: Checkpoint with name legal_json_asset_checkpoint was not found.
-2025-12-28 20:47:42,150 - __main__ - WARNING - Валидация не была выполнена из-за ошибок
-2025-12-28 20:56:49,286 - __main__ - INFO - ============================================================
-2025-12-28 20:56:49,286 - __main__ - INFO - Запуск процесса настройки Great Expectations
-2025-12-28 20:56:49,286 - __main__ - INFO - ============================================================
-2025-12-28 20:56:49,286 - __main__ - INFO - PROJECT_ROOT: /Users/antonamadeus/github-projects/Active/experimental/Data_Invariants
-2025-12-28 20:56:49,286 - __main__ - INFO - PROJECT_ROOT.parent: /Users/antonamadeus/github-projects/Active/experimental
-2025-12-28 20:56:49,286 - __main__ - INFO - Вычисленный путь к raw данным (до resolve): /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 20:56:49,286 - __main__ - INFO - Вычисленный путь к processed данным (до resolve): /Users/antonamadeus/github-projects/Active/experimental/data/processed
-2025-12-28 20:56:49,286 - __main__ - INFO - Вычисленный путь к raw данным (после resolve): /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 20:56:49,286 - __main__ - INFO - Вычисленный путь к processed данным (после resolve): /Users/antonamadeus/github-projects/Active/experimental/data/processed
-2025-12-28 20:56:49,286 - __main__ - INFO - Используется путь по умолчанию: /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 20:56:49,286 - __main__ - INFO - Используется путь к processed данным по умолчанию: /Users/antonamadeus/github-projects/Active/experimental/data/processed
-2025-12-28 20:56:49,286 - __main__ - INFO - Конфигурация загружена: {'raw_data_path': '/Users/antonamadeus/github-projects/Active/experimental/data/raw', 'clean_data_path': '/Users/antonamadeus/github-projects/Active/experimental/data/processed', 'data_source_name': 'my_local_datasource', 'asset_name': 'legal_json_asset', 'batch_definition_name': 'whole_file', 'file_pattern': '**/*.json'}
-2025-12-28 20:56:49,286 - __main__ - INFO - Директория raw_data найдена: /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 20:56:49,287 - __main__ - INFO - Найдено 5 файл(ов) по паттерну '**/*.json'
-2025-12-28 20:56:49,287 - __main__ - INFO - Инициализация контекста Great Expectations...
-2025-12-28 20:56:49,287 - great_expectations.data_context.data_context.context_factory - INFO - Could not find local file-backed GX project
-2025-12-28 20:56:49,288 - great_expectations.data_context.types.base - INFO - Created temporary directory '/var/folders/dd/k0_x8pxx3014_y7tqpx4w7gr0000gn/T/tmpvdowngus' for ephemeral docs site
-2025-12-28 20:56:49,289 - great_expectations.datasource.fluent.config - INFO - Loading 'datasources' ->
-[]
-2025-12-28 20:56:49,291 - __main__ - INFO - Контекст успешно инициализирован
-2025-12-28 20:56:49,291 - __main__ - INFO - Создание источника данных: my_local_datasource
-2025-12-28 20:56:49,294 - __main__ - INFO - Источник данных 'my_local_datasource' успешно создан
-2025-12-28 20:56:49,294 - __main__ - INFO - Создание Data Asset: legal_json_asset
-2025-12-28 20:56:49,294 - __main__ - INFO - Использование паттерна файлов: **/*.json
-2025-12-28 20:56:49,294 - great_expectations.datasource.fluent.sources - INFO - 'my_local_datasource' PandasFilesystemDatasource uses FilesystemDataConnector
-2025-12-28 20:56:49,294 - great_expectations.datasource.fluent.sources - INFO - FilesystemDataConnector connect_options provided -> ['glob_directive']
-2025-12-28 20:56:49,296 - __main__ - INFO - Data Asset 'legal_json_asset' успешно создан с паттерном '**/*.json'
-2025-12-28 20:56:49,296 - __main__ - INFO - Создание Batch Definition: whole_file
-2025-12-28 20:56:49,296 - __main__ - INFO - Batch Definition создается автоматически при использовании asset
-2025-12-28 20:56:49,296 - __main__ - INFO - Batch request успешно создан: datasource_name='my_local_datasource' data_asset_name='legal_json_asset' options={} partitioner=None
-2025-12-28 20:56:49,296 - __main__ - INFO - Создание Expectation Suite...
-2025-12-28 20:56:49,296 - __main__ - INFO - Создан новый Expectation Suite: legal_json_asset_suite
-2025-12-28 20:56:49,296 - __main__ - INFO - Получение валидатора для создания expectations...
-2025-12-28 20:56:49,297 - great_expectations.datasource.fluent.data_connector.batch_filter - INFO - batch_slice: None was parsed to: slice(0, None, None)
-2025-12-28 20:56:49,297 - great_expectations.datasource.fluent.data_connector.batch_filter - INFO - batch_slice: slice(0, None, None) was parsed to: slice(0, None, None)
-2025-12-28 20:56:49,313 - __main__ - INFO - Добавление expectations...
-/Users/antonamadeus/github-projects/Active/legal_nlp/.venv/lib/python3.11/site-packages/great_expectations/expectations/expectation.py:1633: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
-  warnings.warn(
-Calculating Metrics:   0%|          | 0/1 [00:00<?, ?it/s]Calculating Metrics:   0%|          | 0/1 [00:00<?, ?it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 1650.65it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 1453.33it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 1337.04it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 1264.11it/s]
-2025-12-28 20:56:49,331 - __main__ - INFO - ✓ Expectation добавлена: таблица не пустая
-2025-12-28 20:56:49,332 - great_expectations.validator.validator - INFO - 	1 expectation(s) included in expectation_suite.
-2025-12-28 20:56:49,332 - __main__ - INFO - Expectation Suite 'legal_json_asset_suite' уже существует, обновление выполнено через validator
-2025-12-28 20:56:49,332 - __main__ - INFO - Запуск валидации данных...
-2025-12-28 20:56:49,332 - __main__ - INFO - Checkpoint 'legal_json_asset_checkpoint' не найден, будет создан новый
-2025-12-28 20:56:49,332 - __main__ - ERROR - Ошибка при валидации данных: CheckpointFactory.add() got an unexpected keyword argument 'name'
-Traceback (most recent call last):
-  File "/Users/antonamadeus/github-projects/Active/experimental/Data_Invariants/setup_ge.py", line 447, in validate_data
-    checkpoint = context.checkpoints.add(
-                 ^^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: CheckpointFactory.add() got an unexpected keyword argument 'name'
-2025-12-28 20:56:49,332 - __main__ - WARNING - Валидация не была выполнена из-за ошибок
-2025-12-28 21:10:41,857 - __main__ - INFO - ============================================================
-2025-12-28 21:10:41,857 - __main__ - INFO - Запуск процесса настройки Great Expectations
-2025-12-28 21:10:41,857 - __main__ - INFO - ============================================================
-2025-12-28 21:10:41,857 - __main__ - INFO - PROJECT_ROOT: /Users/antonamadeus/github-projects/Active/experimental/Data_Invariants
-2025-12-28 21:10:41,857 - __main__ - INFO - PROJECT_ROOT.parent: /Users/antonamadeus/github-projects/Active/experimental
-2025-12-28 21:10:41,857 - __main__ - INFO - Вычисленный путь к raw данным (до resolve): /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 21:10:41,857 - __main__ - INFO - Вычисленный путь к processed данным (до resolve): /Users/antonamadeus/github-projects/Active/experimental/data/processed
-2025-12-28 21:10:41,857 - __main__ - INFO - Вычисленный путь к raw данным (после resolve): /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 21:10:41,857 - __main__ - INFO - Вычисленный путь к processed данным (после resolve): /Users/antonamadeus/github-projects/Active/experimental/data/processed
-2025-12-28 21:10:41,857 - __main__ - INFO - Используется путь по умолчанию: /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 21:10:41,857 - __main__ - INFO - Используется путь к processed данным по умолчанию: /Users/antonamadeus/github-projects/Active/experimental/data/processed
-2025-12-28 21:10:41,857 - __main__ - INFO - Конфигурация загружена: {'raw_data_path': '/Users/antonamadeus/github-projects/Active/experimental/data/raw', 'clean_data_path': '/Users/antonamadeus/github-projects/Active/experimental/data/processed', 'data_source_name': 'my_local_datasource', 'asset_name': 'legal_json_asset', 'batch_definition_name': 'whole_file', 'file_pattern': '**/*.json'}
-2025-12-28 21:10:41,857 - __main__ - INFO - Директория raw_data найдена: /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 21:10:41,858 - __main__ - INFO - Найдено 5 файл(ов) по паттерну '**/*.json'
-2025-12-28 21:10:41,858 - __main__ - INFO - Инициализация контекста Great Expectations...
-2025-12-28 21:10:41,858 - great_expectations.data_context.data_context.context_factory - INFO - Could not find local file-backed GX project
-2025-12-28 21:10:41,859 - great_expectations.data_context.types.base - INFO - Created temporary directory '/var/folders/dd/k0_x8pxx3014_y7tqpx4w7gr0000gn/T/tmp9amef716' for ephemeral docs site
-2025-12-28 21:10:41,859 - great_expectations.datasource.fluent.config - INFO - Loading 'datasources' ->
-[]
-2025-12-28 21:10:41,862 - __main__ - INFO - Контекст успешно инициализирован
-2025-12-28 21:10:41,862 - __main__ - INFO - Создание источника данных: my_local_datasource
-2025-12-28 21:10:41,864 - __main__ - INFO - Источник данных 'my_local_datasource' успешно создан
-2025-12-28 21:10:41,864 - __main__ - INFO - Создание Data Asset: legal_json_asset
-2025-12-28 21:10:41,864 - __main__ - INFO - Использование паттерна файлов: **/*.json
-2025-12-28 21:10:41,864 - great_expectations.datasource.fluent.sources - INFO - 'my_local_datasource' PandasFilesystemDatasource uses FilesystemDataConnector
-2025-12-28 21:10:41,864 - great_expectations.datasource.fluent.sources - INFO - FilesystemDataConnector connect_options provided -> ['glob_directive']
-2025-12-28 21:10:41,866 - __main__ - INFO - Data Asset 'legal_json_asset' успешно создан с паттерном '**/*.json'
-2025-12-28 21:10:41,866 - __main__ - INFO - Создание Batch Definition: whole_file
-2025-12-28 21:10:41,866 - __main__ - INFO - Batch Definition создается автоматически при использовании asset
-2025-12-28 21:10:41,866 - __main__ - INFO - Batch request успешно создан: datasource_name='my_local_datasource' data_asset_name='legal_json_asset' options={} partitioner=None
-2025-12-28 21:10:41,866 - __main__ - INFO - Создание Expectation Suite...
-2025-12-28 21:10:41,866 - __main__ - INFO - Создан новый Expectation Suite: legal_json_asset_suite
-2025-12-28 21:10:41,866 - __main__ - INFO - Получение валидатора для создания expectations...
-2025-12-28 21:10:41,867 - great_expectations.datasource.fluent.data_connector.batch_filter - INFO - batch_slice: None was parsed to: slice(0, None, None)
-2025-12-28 21:10:41,867 - great_expectations.datasource.fluent.data_connector.batch_filter - INFO - batch_slice: slice(0, None, None) was parsed to: slice(0, None, None)
-2025-12-28 21:10:41,885 - __main__ - INFO - Добавление expectations...
-/Users/antonamadeus/github-projects/Active/legal_nlp/.venv/lib/python3.11/site-packages/great_expectations/expectations/expectation.py:1633: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
-  warnings.warn(
-Calculating Metrics:   0%|          | 0/1 [00:00<?, ?it/s]Calculating Metrics:   0%|          | 0/1 [00:00<?, ?it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 1227.48it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 1126.59it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 1075.74it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 998.17it/s] 
-2025-12-28 21:10:41,905 - __main__ - INFO - ✓ Expectation добавлена: таблица не пустая
-2025-12-28 21:10:41,905 - great_expectations.validator.validator - INFO - 	1 expectation(s) included in expectation_suite.
-2025-12-28 21:10:41,905 - __main__ - INFO - Expectation Suite 'legal_json_asset_suite' уже существует, обновление выполнено через validator
-2025-12-28 21:10:41,905 - __main__ - INFO - Запуск валидации данных...
-2025-12-28 21:10:41,906 - __main__ - INFO - Checkpoint 'legal_json_asset_checkpoint' не найден, будет создан новый
-2025-12-28 21:10:41,906 - __main__ - INFO - SimpleCheckpoint недоступен или не работает (cannot import name 'SimpleCheckpoint' from 'great_expectations.checkpoint' (/Users/antonamadeus/github-projects/Active/legal_nlp/.venv/lib/python3.11/site-packages/great_expectations/checkpoint/__init__.py)), используем валидацию через validator
-2025-12-28 21:10:41,906 - great_expectations.datasource.fluent.data_connector.batch_filter - INFO - batch_slice: None was parsed to: slice(0, None, None)
-2025-12-28 21:10:41,906 - great_expectations.datasource.fluent.data_connector.batch_filter - INFO - batch_slice: slice(0, None, None) was parsed to: slice(0, None, None)
-2025-12-28 21:10:41,917 - great_expectations.validator.validator - INFO - 	0 expectation(s) included in expectation_suite.
-Calculating Metrics: 0it [00:00, ?it/s]Calculating Metrics: 0it [00:00, ?it/s]Calculating Metrics: 0it [00:00, ?it/s]Calculating Metrics: 0it [00:00, ?it/s]
-2025-12-28 21:10:41,918 - __main__ - INFO - ✓ Валидация выполнена напрямую через validator
-2025-12-28 21:10:41,918 - __main__ - INFO - ============================================================
-2025-12-28 21:10:41,918 - __main__ - INFO - Процесс валидации завершен успешно
-2025-12-28 21:10:41,918 - __main__ - INFO - ============================================================
-2025-12-28 21:17:18,613 - __main__ - INFO - ============================================================
-2025-12-28 21:17:18,613 - __main__ - INFO - Запуск процесса настройки Great Expectations
-2025-12-28 21:17:18,613 - __main__ - INFO - ============================================================
-2025-12-28 21:17:18,613 - __main__ - INFO - PROJECT_ROOT: /Users/antonamadeus/github-projects/Active/experimental/Data_Invariants
-2025-12-28 21:17:18,613 - __main__ - INFO - PROJECT_ROOT.parent: /Users/antonamadeus/github-projects/Active/experimental
-2025-12-28 21:17:18,613 - __main__ - INFO - Вычисленный путь к raw данным (до resolve): /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 21:17:18,613 - __main__ - INFO - Вычисленный путь к processed данным (до resolve): /Users/antonamadeus/github-projects/Active/experimental/data/processed
-2025-12-28 21:17:18,613 - __main__ - INFO - Вычисленный путь к raw данным (после resolve): /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 21:17:18,613 - __main__ - INFO - Вычисленный путь к processed данным (после resolve): /Users/antonamadeus/github-projects/Active/experimental/data/processed
-2025-12-28 21:17:18,613 - __main__ - INFO - Используется путь по умолчанию: /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 21:17:18,613 - __main__ - INFO - Используется путь к processed данным по умолчанию: /Users/antonamadeus/github-projects/Active/experimental/data/processed
-2025-12-28 21:17:18,613 - __main__ - INFO - Конфигурация загружена: {'raw_data_path': '/Users/antonamadeus/github-projects/Active/experimental/data/raw', 'clean_data_path': '/Users/antonamadeus/github-projects/Active/experimental/data/processed', 'data_source_name': 'my_local_datasource', 'asset_name': 'legal_json_asset', 'batch_definition_name': 'whole_file', 'file_pattern': '**/*.json'}
-2025-12-28 21:17:18,613 - __main__ - INFO - Директория raw_data найдена: /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 21:17:18,613 - __main__ - INFO - Найдено 5 файл(ов) по паттерну '**/*.json'
-2025-12-28 21:17:18,614 - __main__ - INFO - Инициализация контекста Great Expectations...
-2025-12-28 21:17:18,614 - great_expectations.data_context.data_context.context_factory - INFO - Could not find local file-backed GX project
-2025-12-28 21:17:18,614 - great_expectations.data_context.types.base - INFO - Created temporary directory '/var/folders/dd/k0_x8pxx3014_y7tqpx4w7gr0000gn/T/tmpb3obi9ks' for ephemeral docs site
-2025-12-28 21:17:18,615 - great_expectations.datasource.fluent.config - INFO - Loading 'datasources' ->
-[]
-2025-12-28 21:17:18,617 - __main__ - INFO - Контекст успешно инициализирован
-2025-12-28 21:17:18,617 - __main__ - INFO - Создание источника данных: my_local_datasource
-2025-12-28 21:17:18,619 - __main__ - INFO - Источник данных 'my_local_datasource' успешно создан
-2025-12-28 21:17:18,619 - __main__ - INFO - Создание Data Asset: legal_json_asset
-2025-12-28 21:17:18,619 - __main__ - INFO - Использование паттерна файлов: **/*.json
-2025-12-28 21:17:18,619 - great_expectations.datasource.fluent.sources - INFO - 'my_local_datasource' PandasFilesystemDatasource uses FilesystemDataConnector
-2025-12-28 21:17:18,619 - great_expectations.datasource.fluent.sources - INFO - FilesystemDataConnector connect_options provided -> ['glob_directive']
-2025-12-28 21:17:18,621 - __main__ - INFO - Data Asset 'legal_json_asset' успешно создан с паттерном '**/*.json'
-2025-12-28 21:17:18,621 - __main__ - INFO - Создание Batch Definition: whole_file
-2025-12-28 21:17:18,621 - __main__ - INFO - Batch Definition создается автоматически при использовании asset
-2025-12-28 21:17:18,621 - __main__ - INFO - Batch request успешно создан: datasource_name='my_local_datasource' data_asset_name='legal_json_asset' options={} partitioner=None
-2025-12-28 21:17:18,621 - __main__ - INFO - Создание Expectation Suite...
-2025-12-28 21:17:18,622 - __main__ - INFO - Создан новый Expectation Suite: legal_json_asset_suite
-2025-12-28 21:17:18,622 - __main__ - INFO - Получение валидатора для создания expectations...
-2025-12-28 21:17:18,622 - great_expectations.datasource.fluent.data_connector.batch_filter - INFO - batch_slice: None was parsed to: slice(0, None, None)
-2025-12-28 21:17:18,622 - great_expectations.datasource.fluent.data_connector.batch_filter - INFO - batch_slice: slice(0, None, None) was parsed to: slice(0, None, None)
-2025-12-28 21:17:18,637 - __main__ - INFO - Добавление expectations...
-/Users/antonamadeus/github-projects/Active/legal_nlp/.venv/lib/python3.11/site-packages/great_expectations/expectations/expectation.py:1633: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
-  warnings.warn(
-Calculating Metrics:   0%|          | 0/1 [00:00<?, ?it/s]Calculating Metrics:   0%|          | 0/1 [00:00<?, ?it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 2673.23it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 2313.46it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 2126.93it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 1949.03it/s]
-2025-12-28 21:17:18,656 - __main__ - INFO - ✓ Expectation добавлена: таблица не пустая
-2025-12-28 21:17:18,656 - great_expectations.validator.validator - INFO - 	1 expectation(s) included in expectation_suite.
-2025-12-28 21:17:18,657 - __main__ - INFO - Expectation Suite 'legal_json_asset_suite' уже существует, обновление выполнено через validator
-2025-12-28 21:17:18,657 - __main__ - INFO - Запуск валидации данных...
-2025-12-28 21:17:18,657 - __main__ - INFO - Checkpoint 'legal_json_asset_checkpoint' не найден, будет создан новый
-2025-12-28 21:17:18,657 - __main__ - INFO - SimpleCheckpoint недоступен или не работает (cannot import name 'SimpleCheckpoint' from 'great_expectations.checkpoint' (/Users/antonamadeus/github-projects/Active/legal_nlp/.venv/lib/python3.11/site-packages/great_expectations/checkpoint/__init__.py)), используем валидацию через validator
-2025-12-28 21:17:18,658 - great_expectations.datasource.fluent.data_connector.batch_filter - INFO - batch_slice: None was parsed to: slice(0, None, None)
-2025-12-28 21:17:18,658 - great_expectations.datasource.fluent.data_connector.batch_filter - INFO - batch_slice: slice(0, None, None) was parsed to: slice(0, None, None)
-2025-12-28 21:17:18,668 - __main__ - INFO - Validator создан с suite объектом, содержит 0 expectations
-2025-12-28 21:17:18,669 - great_expectations.validator.validator - INFO - 	0 expectation(s) included in expectation_suite.
-Calculating Metrics: 0it [00:00, ?it/s]Calculating Metrics: 0it [00:00, ?it/s]Calculating Metrics: 0it [00:00, ?it/s]Calculating Metrics: 0it [00:00, ?it/s]
-2025-12-28 21:17:18,669 - __main__ - INFO - ✓ Валидация выполнена напрямую через validator
-2025-12-28 21:17:18,669 - __main__ - INFO - ============================================================
-2025-12-28 21:17:18,669 - __main__ - INFO - Процесс валидации завершен успешно
-2025-12-28 21:17:18,669 - __main__ - INFO - ============================================================
-2025-12-28 21:25:14,830 - __main__ - INFO - ============================================================
-2025-12-28 21:25:14,830 - __main__ - INFO - Запуск процесса настройки Great Expectations
-2025-12-28 21:25:14,830 - __main__ - INFO - ============================================================
-2025-12-28 21:25:14,830 - __main__ - INFO - PROJECT_ROOT: /Users/antonamadeus/github-projects/Active/experimental/Data_Invariants
-2025-12-28 21:25:14,830 - __main__ - INFO - PROJECT_ROOT.parent: /Users/antonamadeus/github-projects/Active/experimental
-2025-12-28 21:25:14,830 - __main__ - INFO - Вычисленный путь к raw данным (до resolve): /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 21:25:14,830 - __main__ - INFO - Вычисленный путь к processed данным (до resolve): /Users/antonamadeus/github-projects/Active/experimental/data/processed
-2025-12-28 21:25:14,830 - __main__ - INFO - Вычисленный путь к raw данным (после resolve): /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 21:25:14,830 - __main__ - INFO - Вычисленный путь к processed данным (после resolve): /Users/antonamadeus/github-projects/Active/experimental/data/processed
-2025-12-28 21:25:14,831 - __main__ - INFO - Используется путь по умолчанию: /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 21:25:14,831 - __main__ - INFO - Используется путь к processed данным по умолчанию: /Users/antonamadeus/github-projects/Active/experimental/data/processed
-2025-12-28 21:25:14,831 - __main__ - INFO - Конфигурация загружена: {'raw_data_path': '/Users/antonamadeus/github-projects/Active/experimental/data/raw', 'clean_data_path': '/Users/antonamadeus/github-projects/Active/experimental/data/processed', 'data_source_name': 'my_local_datasource', 'asset_name': 'legal_json_asset', 'batch_definition_name': 'whole_file', 'file_pattern': '**/*.json'}
-2025-12-28 21:25:14,831 - __main__ - INFO - Директория raw_data найдена: /Users/antonamadeus/github-projects/Active/experimental/data/raw
-2025-12-28 21:25:14,831 - __main__ - INFO - Найдено 5 файл(ов) по паттерну '**/*.json'
-2025-12-28 21:25:14,831 - __main__ - INFO - Инициализация контекста Great Expectations...
-2025-12-28 21:25:14,832 - great_expectations.data_context.data_context.context_factory - INFO - Could not find local file-backed GX project
-2025-12-28 21:25:14,832 - great_expectations.data_context.types.base - INFO - Created temporary directory '/var/folders/dd/k0_x8pxx3014_y7tqpx4w7gr0000gn/T/tmpya2wvedd' for ephemeral docs site
-2025-12-28 21:25:14,832 - great_expectations.datasource.fluent.config - INFO - Loading 'datasources' ->
-[]
-2025-12-28 21:25:14,834 - __main__ - INFO - Контекст успешно инициализирован
-2025-12-28 21:25:14,834 - __main__ - INFO - Создание источника данных: my_local_datasource
-2025-12-28 21:25:14,837 - __main__ - INFO - Источник данных 'my_local_datasource' успешно создан
-2025-12-28 21:25:14,837 - __main__ - INFO - Создание Data Asset: legal_json_asset
-2025-12-28 21:25:14,837 - __main__ - INFO - Использование паттерна файлов: **/*.json
-2025-12-28 21:25:14,837 - great_expectations.datasource.fluent.sources - INFO - 'my_local_datasource' PandasFilesystemDatasource uses FilesystemDataConnector
-2025-12-28 21:25:14,837 - great_expectations.datasource.fluent.sources - INFO - FilesystemDataConnector connect_options provided -> ['glob_directive']
-2025-12-28 21:25:14,839 - __main__ - INFO - Data Asset 'legal_json_asset' успешно создан с паттерном '**/*.json'
-2025-12-28 21:25:14,839 - __main__ - INFO - Создание Batch Definition: whole_file
-2025-12-28 21:25:14,839 - __main__ - INFO - Batch Definition создается автоматически при использовании asset
-2025-12-28 21:25:14,839 - __main__ - INFO - Batch request успешно создан: datasource_name='my_local_datasource' data_asset_name='legal_json_asset' options={} partitioner=None
-2025-12-28 21:25:14,839 - __main__ - INFO - Создание Expectation Suite...
-2025-12-28 21:25:14,839 - __main__ - INFO - Создан новый Expectation Suite: legal_json_asset_suite
-2025-12-28 21:25:14,839 - __main__ - INFO - Получение валидатора для создания expectations...
-2025-12-28 21:25:14,840 - great_expectations.datasource.fluent.data_connector.batch_filter - INFO - batch_slice: None was parsed to: slice(0, None, None)
-2025-12-28 21:25:14,840 - great_expectations.datasource.fluent.data_connector.batch_filter - INFO - batch_slice: slice(0, None, None) was parsed to: slice(0, None, None)
-2025-12-28 21:25:14,862 - __main__ - INFO - Добавление expectations...
-/Users/antonamadeus/github-projects/Active/legal_nlp/.venv/lib/python3.11/site-packages/great_expectations/expectations/expectation.py:1633: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
-  warnings.warn(
-Calculating Metrics:   0%|          | 0/1 [00:00<?, ?it/s]Calculating Metrics:   0%|          | 0/1 [00:00<?, ?it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 2201.73it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 1960.87it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 1817.29it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 1622.55it/s]
-2025-12-28 21:25:14,881 - __main__ - INFO - ✓ Expectation добавлена: таблица не пустая
-2025-12-28 21:25:14,881 - great_expectations.validator.validator - INFO - 	1 expectation(s) included in expectation_suite.
-2025-12-28 21:25:14,881 - __main__ - INFO - Expectation Suite 'legal_json_asset_suite' уже существует, обновление выполнено через validator
-2025-12-28 21:25:14,882 - great_expectations.validator.validator - INFO - 	1 expectation(s) included in expectation_suite.
-2025-12-28 21:25:14,882 - __main__ - INFO - Suite из validator содержит 1 expectations
-2025-12-28 21:25:14,882 - __main__ - INFO - Запуск валидации данных...
-2025-12-28 21:25:14,882 - __main__ - INFO - Используется переданный suite объект, содержит 1 expectations
-2025-12-28 21:25:14,882 - __main__ - INFO - Checkpoint 'legal_json_asset_checkpoint' не найден, будет создан новый
-2025-12-28 21:25:14,882 - __main__ - INFO - SimpleCheckpoint недоступен или не работает (cannot import name 'SimpleCheckpoint' from 'great_expectations.checkpoint' (/Users/antonamadeus/github-projects/Active/legal_nlp/.venv/lib/python3.11/site-packages/great_expectations/checkpoint/__init__.py)), используем валидацию через validator
-2025-12-28 21:25:14,882 - great_expectations.datasource.fluent.data_connector.batch_filter - INFO - batch_slice: None was parsed to: slice(0, None, None)
-2025-12-28 21:25:14,882 - great_expectations.datasource.fluent.data_connector.batch_filter - INFO - batch_slice: slice(0, None, None) was parsed to: slice(0, None, None)
-2025-12-28 21:25:14,895 - __main__ - INFO - Validator создан с suite объектом, содержит 1 expectations
-2025-12-28 21:25:14,895 - great_expectations.validator.validator - INFO - 	1 expectation(s) included in expectation_suite.
-Calculating Metrics:   0%|          | 0/1 [00:00<?, ?it/s]Calculating Metrics:   0%|          | 0/1 [00:00<?, ?it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 10951.19it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 7681.88it/s] Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 6355.01it/s]Calculating Metrics: 100%|██████████| 1/1 [00:00<00:00, 5203.85it/s]
-2025-12-28 21:25:14,897 - __main__ - INFO - ✓ Валидация выполнена напрямую через validator
-2025-12-28 21:25:14,897 - __main__ - INFO - ============================================================
-2025-12-28 21:25:14,897 - __main__ - INFO - Процесс валидации завершен успешно
-2025-12-28 21:25:14,897 - __main__ - INFO - ============================================================
