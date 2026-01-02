@@ -67,7 +67,11 @@ pos_mapping(text_without_stopwords)
 
 text_without_stopwords = ['want', 'enroll', 'finest', 'courses', 'machine', 'learning', 'studied', 'amaizing']
 lemmatized_text = ['want', 'enroll', 'finest', 'courses', 'machine', 'learning', 'studied', 'amaizing']
- 16:14
+#16:14 check
+
+final_text = " ".join(lemmatized_text)
+print(f"Lemmatized text: {lemmatized_text}")
+print(f"Final text: {final_text}")
 
 lemmatizer = WordNetLemmatizer()
 lemmatized_text = [lemmatizer.lemmatize(word) for word in text_without_stopwords]
@@ -103,4 +107,23 @@ bow_df = pd.DataFrame(
     corpus_bow.toarray(), columns=bow.get_feature_names_out(), index=corpus
 )
 bow_df
-"""
+
+
+bow1 = CountVectorizer(ngram_range=(2, 3))
+corpus_bow1 = bow1.fit_transform(corpus)
+corpus_bow1
+
+bow1_df = pd.DataFrame(
+    corpus_bow1.toarray(), columns=bow1.get_feature_names_out(), index=corpus
+)
+bow1_df
+
+# analayzer parameter
+bow2 = CountVectorizer(ngram_range=(4, 6), analyzer="char_wb")
+corpus_bow2 = bow2.fit_transform(corpus)
+corpus_bow2
+
+bow2_df = pd.DataFrame(
+    corpus_bow2.toarray(), columns=bow2.get_feature_names_out(), index=corpus
+)
+bow2_df
