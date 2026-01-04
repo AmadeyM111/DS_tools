@@ -127,3 +127,39 @@ bow2_df = pd.DataFrame(
     corpus_bow2.toarray(), columns=bow2.get_feature_names_out(), index=corpus
 )
 bow2_df
+
+# vectorization of train and test data
+
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+vect = TfidfVectorizer()
+x_trian_vect = vect.fit_transform(x_train)
+x_test_vect = vect.transform(x_test)
+x_train_vect, x_test_vect
+
+# Create model for classification Naive Bayes Classifire
+
+from sklearn.naive_bayes import MultinomialNB
+
+mnb = MultinomialNB()
+mnb.fit(x_train_vect, y_train)
+y_mnb = mnb.predict(x_test_vect)
+y_mnb 
+
+# Elevate classification quality by accuracy, precision_score, recall_score, f1_score
+
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+
+report = pd.DataFrame(
+    [
+        accuracy_score(y_test, y_mnb),
+        recall_score(y_test, y_mnb),
+        precision_score(y_test, y_mnb),
+        f1_score(y_test, y_mmb),
+    ]
+).round(2)
+report = report.rename(columns={0: "Naive Bayes"})
+report = report.rename(
+    index={0: "accuracy", 1: "recall", 2: "precision", 3: "f1-score", 4: "accuracy"}
+)
+report
