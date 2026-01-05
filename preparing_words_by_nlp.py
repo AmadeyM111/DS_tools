@@ -163,3 +163,16 @@ report = report.rename(
     index={0: "accuracy", 1: "recall", 2: "precision", 3: "f1-score", 4: "accuracy"}
 )
 report
+
+import seaborn as sns
+from sklearn.metrics import confusion_matrix
+
+cm = confusion_matrix(y_test, y_mnb)
+plt.figure(figsize=(8, 6))
+
+sns.heatmap(
+    cm, annot=True, fmt="d", cmap="Blues", xticklabels=[0, 1], yticklabels=[1, 0]
+)
+plt.xlabel("Predicted labels")
+plt.ylabel("True labels")
+plt.show()
