@@ -87,3 +87,4 @@ sns.heatmap(
 )
 plt.xlabel("Predicted labels")
 plt.ylabel("True labels")
+plt.show()
