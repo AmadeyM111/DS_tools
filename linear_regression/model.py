@@ -17,6 +17,7 @@ def gradient_descent(x_train, y_train, x_test, y_test, w, alpha, iterations=100)
     w = w.copy()
     mse_train = []
     mse_test = []
+    ws = [w.copy()]  # Store initial weights
 
     for i in range(iterations + 1):
         if i > 0:
@@ -25,9 +26,10 @@ def gradient_descent(x_train, y_train, x_test, y_test, w, alpha, iterations=100)
             # history
             mse_train.append(mean_squared_error(y_train, x_train @ w))
             mse_test.append(mean_squared_error(y_test, x_test @ w))
+            ws.append(w.copy())  # Store weights at each iteration
 
             if i % 10 == 0 or i == iterations:
                 print(f"Iter {i:4d} | b={w[0, 0]:.4f} w={w[1, 0]:.4f} "
                         f"train={mse_train[-1]:.6f} test={mse_test[-1]:.6f}")
 
-    return w, mse_train, mse_test
+    return w, mse_train, mse_test, ws
