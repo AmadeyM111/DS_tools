@@ -90,13 +90,13 @@ def extract_qa_pairs(jsonl_file: str) -> List[Dict]:
 def categorize_answer_quality(answer: str) -> str:
     """
     Автоматически оценивает качество ответа.
-    
+
     Returns:
-        'good' | 'bad' | 'clarification' | 'error'
+        'good' | 'bad' | 'clarification' | 'partial' | 'neutral'
     """
-    
+
     answer_lower = answer.lower()
-    
+
     # Плохие ответы (ошибки, нет информации)
     bad_patterns = [
         'не указано',
@@ -105,10 +105,10 @@ def categorize_answer_quality(answer: str) -> str:
         'ошибка запроса',
         'не удалось получить',
     ]
-    
+
     if any(pattern in answer_lower for pattern in bad_patterns):
         return 'bad'
-    
+
     # Уточняющие вопросы
     clarification_patterns = [
         'уточните',
@@ -116,18 +116,33 @@ def categorize_answer_quality(answer: str) -> str:
         'конкретно',
         'какой именно',
     ]
-    
+
     if any(pattern in answer_lower for pattern in clarification_patterns):
         return 'clarification'
-    
-    # Рекомендация позвонить (частичная информация)
-    if 'рекомендую обратиться' in answer_lower or 'позвоните' in answer_lower:
-        return 'partial'
-    
-    # Хорошие ответы (содержат конкретную информацию)
-    if len(answer) > 100:  # Достаточно развёрнутый ответ
+
+    # Признаки содержательного ответа (конкретная информация)
+    content_patterns = [
+        'рубл', 'руб', '₽', 'ОМС', 'бесплатно',  # цена
+        '+7', 'тел',                                 # контакты
+        'адрес', 'москва', 'химки', 'клязьма',      # адрес
+        'врач', 'доктор', 'специалист',              # специалисты
+        'приём', 'запись', 'расписание',             # запись
+    ]
+    has_content = any(p in answer_lower for p in content_patterns)
+
+    # Хороший ответ: длинный И содержит конкретику
+    if len(answer) > 100 and has_content:
         return 'good'
-    
+
+    # Частичный ответ: есть конкретика, но с оговоркой позвонить
+    partial_patterns = ['рекомендую обратиться', 'позвоните']
+    if any(p in answer_lower for p in partial_patterns):
+        return 'partial'
+
+    # Хороший ответ: длинный, без оговорок (даже без явных content_patterns)
+    if len(answer) > 100:
+        return 'good'
+
     return 'neutral'
 
 
@@ -250,19 +265,9 @@ if __name__ == '__main__':
     # 5. Сохранение JSON для использования в коде
     print("\n[5/5] Сохранение JSON версии...")
 
-    available_columns = test_df.columns.tolist()
-    print(f"DEBUG: Доступные колонки: {available_columns}")
-    
-    json_columns = []
-    for col in ['user_query', 'bot_answer', 'intent', 'intent_category', 'answer_quality']:
-        if col in available_columns:
-            json_columns.append(col)
-
-    test_json = test_df[json_columns].to_dict('records')
-
-    for item in test_json:
-        if 'bot_answer' in item:
-            item['reference_answer'] = item.pop('bot_answer')
+    json_columns = ['user_query', 'bot_answer', 'intent', 'intent_category', 'answer_quality']
+    test_json_df = test_df[json_columns].rename(columns={'bot_answer': 'reference_answer'})
+    test_json = test_json_df.to_dict('records')
 
     with open('baseline_test_set.json', 'w', encoding='utf-8') as f:
         json.dump(test_json, f, ensure_ascii=False, indent=2)
